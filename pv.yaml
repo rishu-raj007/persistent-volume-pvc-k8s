@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: my-pv-azure
+spec:
+  storageClassName: photo-volume
+  azureFile:
+      secretName: pvc-secret 
+      shareName: pvc-docker
+  capacity:
+    storage: 4Gi
+  accessModes:
+  - ReadWriteMany
+  volumeMode: Filesystem
